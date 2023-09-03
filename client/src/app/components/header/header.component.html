@@ -1,0 +1,54 @@
+<mat-toolbar color="primary">
+  <span class="spacer"></span>
+  <div class="header-links">
+    <a mat-button *ngIf="!isLoggedIn()" routerLink="/register">Регистрация</a>
+    <a mat-button *ngIf="!isLoggedIn()" routerLink="/login">Войти</a>
+    <a mat-button *ngIf="isLoggedIn() && authService.roleMatch('директор')" routerLink="/director">Профиль директора</a>
+    <a mat-button *ngIf="isLoggedIn() && authService.roleMatch('оператор экскаватора')" routerLink="/operator">Профиль оператора эскаватора</a>
+    <a mat-button *ngIf="isLoggedIn() && authService.roleMatch('мастер')" routerLink="/master">Профиль горного мастера</a>
+    <a mat-button *ngIf="isLoggedIn() && authService.roleMatch('заправщик')" routerLink="/fuel">Профиль топливо-заправщика</a>
+    <a mat-button *ngIf="isLoggedIn()" (click)="logout()">
+      <span style="font-size: 1rem;">Выйти</span>
+    </a>
+  </div>
+  <button class="menu-icon" mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+  <a mat-menu-item *ngIf="!isLoggedIn()" routerLink="/register">Регистрация</a>
+  <a mat-menu-item *ngIf="!isLoggedIn()" routerLink="/login">Войти</a>
+  <a
+    class="popup-links"
+    mat-button
+    *ngIf="isLoggedIn() && authService.roleMatch('директор')"
+    routerLink="/director">
+      Профиль директора
+  </a>
+  <a
+    class="popup-links"
+    mat-button
+    *ngIf="isLoggedIn() && authService.roleMatch('оператор экскаватора')"
+    routerLink="/operator">
+      Профиль оператора эскаватора
+  </a>
+  <a
+    class="popup-links"
+    mat-button
+    *ngIf="isLoggedIn() && authService.roleMatch('мастер')"
+    routerLink="/master">
+      Профиль горного мастера
+  </a>
+  <a
+    class="popup-links"
+    mat-button
+    *ngIf="isLoggedIn() && authService.roleMatch('заправщик')"
+    routerLink="/fuel">
+      Профиль топливо-заправщика
+  </a>
+  <button mat-menu-item *ngIf="isLoggedIn()" (click)="logout()">
+    <span>Выйти</span>
+  </button>
+</mat-menu>
+

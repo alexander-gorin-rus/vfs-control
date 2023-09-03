@@ -1,0 +1,28 @@
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.popup-links{
+  background-color: rgb(77, 77, 255);
+}
+
+.menu-icon {
+  display: none;
+}
+
+@media(max-width: 800px) {
+  .menu-icon {
+    display: block;
+  }
+  .header-links {
+    display: none;
+  }
+}
