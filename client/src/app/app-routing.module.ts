@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { WorkersListComponent } from './components/workers-list/workers-list.component';
+import { WorkersListComponent } from './components/director/workers-list/workers-list.component';
 import { OperatorComponent } from './components/operator/operator.component';
 import { MasterComponent } from './components/master/master.component';
 import { FuelAttendantComponent } from './components/fuel-attendant/fuel-attendant.component';
