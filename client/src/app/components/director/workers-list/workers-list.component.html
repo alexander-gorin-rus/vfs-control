@@ -1,0 +1,7 @@
+<mat-card *ngFor="let worker of workers">
+  <mat-card-title>{{ worker.firstName }} {{ worker.lastName }}</mat-card-title>
+  <mat-card-content>
+    <p>Должность: {{ worker.role }}</p>
+    <p>Статус: {{ worker.active ? 'активен' : 'не активен' }}</p>
+  </mat-card-content>
+</mat-card>

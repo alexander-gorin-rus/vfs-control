@@ -9,7 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { HomeComponent } from './components/home/home.component';
-import { WorkersListComponent } from './components/workers-list/workers-list.component';
+import { WorkersListComponent } from './components/director/workers-list/workers-list.component';
 import { UpdatePopupComponent } from './components/update-popup/update-popup.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
@@ -27,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { MatListModule } from '@angular/material/list';
     NavigationComponent,
   ],
   imports: [
+    MatCardModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
