@@ -29,6 +29,10 @@ export class AuthService implements IAuthServiceInterface {
     return this.userRepository.findAll();
   }
 
+  async getUserById(id: string | number): Promise<UserEntity> {
+    return this.userRepository.findOneById(id);
+  }
+
   async findByLogin(login: string): Promise<UserEntity> {
     return await this.userRepository.findByCondition({
       where: { login },
