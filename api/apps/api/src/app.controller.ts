@@ -19,7 +19,6 @@ export class AppController {
     @Inject(SERVICE_NAME.PRESENCE_SERVICE) private presenceService: ClientProxy,
   ) {}
 
-  // @UseGuards(AuthGuard)
   @Get('users')
   async getUsers() {
     return this.authService.send(
