@@ -8,7 +8,7 @@ import { IWorkerInterface } from 'src/app/shared/interfaces';
   styleUrls: ['./workers-list.component.css']
 })
 export class WorkersListComponent implements OnInit {
-  workers: IWorkerInterface[] = []; // Define a type for your workers
+  workers: IWorkerInterface[] = [];
 
   constructor(private authService: AuthService) {}
 

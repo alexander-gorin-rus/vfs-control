@@ -1,5 +1,13 @@
 import { AuthGuard } from '@app/shared';
-import { Body, Controller, Get, Inject, Post, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Inject,
+  Param,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { BrokerMessages } from '@app/shared/broker-messages';
 import { SERVICE_NAME } from '@app/shared/services';
@@ -11,12 +19,22 @@ export class AppController {
     @Inject(SERVICE_NAME.PRESENCE_SERVICE) private presenceService: ClientProxy,
   ) {}
 
-  // @UseGuards(AuthGuard)
   @Get('users')
   async getUsers() {
     return this.authService.send(
       {
         cmd: BrokerMessages.GET_USERS,
+      },
+      {},
+    );
+  }
+
+  @Get('user/:id')
+  async getUser(@Param('id') id: string | number) {
+    return this.authService.send(
+      {
+        cmd: BrokerMessages.GET_A_USER,
+        id: id
       },
       {},
     );
