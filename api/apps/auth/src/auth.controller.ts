@@ -23,18 +23,18 @@ export class AuthController {
   ) {}
 
   @MessagePattern({ cmd: BrokerMessages.GET_USERS })
-  async getUsers(@Ctx() context: RmqContext) {
+  async getWorkers(@Ctx() context: RmqContext) {
     this.sharedService.acknowledgeMessage(context);
-    return this.authService.getUsers();
+    return this.authService.getWorkers();
   }
 
   @MessagePattern({ cmd: BrokerMessages.GET_A_USER })
-  async getUserById(
+  async getWorkerById(
     @Ctx() context: RmqContext,
     @Payload() user: { id: number | string }
     ) {
     this.sharedService.acknowledgeMessage(context);
-    return this.authService.getUserById(user.id);
+    return this.authService.findWorkerById(user.id);
   }
 
   @MessagePattern({ cmd: BrokerMessages.REGISTER_USER })
@@ -60,5 +60,6 @@ export class AuthController {
   ) {
     this.sharedService.acknowledgeMessage(context);
     return this.authService.verifyJwt(payload.jwt);
+    
   }
 }

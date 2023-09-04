@@ -25,11 +25,11 @@ export class AuthService implements IAuthServiceInterface {
     return bcrypt.hash(password, 12);
   }
 
-  async getUsers(): Promise<UserEntity[]> {
+  async getWorkers(): Promise<UserEntity[]> {
     return this.userRepository.findAll();
   }
 
-  async getUserById(id: string | number): Promise<UserEntity> {
+  async findWorkerById(id: string | number): Promise<UserEntity> {
     return this.userRepository.findOneById(id);
   }
 

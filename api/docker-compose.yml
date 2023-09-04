@@ -23,7 +23,7 @@ services:
       - rabbitmq
       - postgres
     volumes:
-      - .:/usr/src/apps
+      - .:/usr/src/app
     command: npm run start:dev auth --watch
   
   api:
